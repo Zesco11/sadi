@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Layout</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<style>
+	/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Background image setup */
+body {
+  background: url('amazing-forest-sunset.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+/* Header (semi-transparent navbar) */
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+}
+
+/* Logo */
+.logo img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Navigation container */
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Navigation box style */
+.nav-box {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Slant line */
+.slant-line {
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: skew(-35deg);
+}
+
+/* Links */
+.nav-box a {
+  display: block;
+  padding: 10px 25px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-box a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* Main content */
+main {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+/* Book button */
+.book-btn {
+  padding: 12px 25px;
+  font-size: 1em;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.book-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Search bar (semi-transparent) */
+.search-bar {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  padding: 15px;
+  border-radius: 40px;
+  width: 70%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+}
+
+.search-bar button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Boxes Section */
+.boxes {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 120px;
+  flex-wrap: wrap;
+}
+
+/* Each box */
+.box {
+  width: 350px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Image inside box */
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 25px;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-section p {
+  margin: 8px 0;
+  font-size: 1em;
+  opacity: 0.9;
+}
+
+/* Footer links */
+.footer-section a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.footer-section a:hover {
+  color: #00bfff;
+  text-decoration: underline;
+}
+
+/* Icons */
+.footer-section i {
+  margin-right: 8px;
+  color: #00ff99;
+  font-size: 1.2em;
+  transition: 0.3s;
+}
+
+.footer-section i.fa-facebook {
+  color: white;
+}
+
+.footer-section i.fa-instagram {
+  color: white;
+}
+
+.footer-section i.fa-youtube {
+  color: #white;
+}
+
+.footer-section i:hover {
+  transform: scale(1.2);
+}
+</style>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="LOGO1.png" alt="Logo">
+    </div>
+
+    <div class="nav-container">
+      <!-- Top Navigation -->
+      <div class="nav-box top-box">
+        <a href="index.html">Home</a>
+        <div class="slant-line"></div>
+        <a href="sign up.html">Sign Up</a>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="nav-box bottom-box">
+        <a href="aboutus.html">About Us</a>
+        <div class="slant-line"></div>
+        <a href="services.html">Our Services</a>
+        <div class="slant-line"></div>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="button-container">
+  <a href="contact.html" class="book-btn">Book with us</a>
+</div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search here..." />
+      <button>Search</button>
+    </div>
+
+    <!-- Image Boxes -->
+    <div class="boxes">
+      <div class="box">
+        <img src="sunset.jpg" alt="Image 1">
+      </div>
+      <div class="box">
+        <img src="elly.jpg" alt="Image 2">
+      </div>
+      <div class="box">
+        <img src="elephant.jpg" alt="Image 3">
+      </div>
+    </div>
+  </main>
+
+</body>
+<!-- Footer -->
+  <footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p>
+        <i class="fa-solid fa-envelope"></i> 
+        <a href="mailto:info@mbikijourney's.com">info@mbikijourney's.com</a>
+      </p>
+      <p>
+        <i class="fa-brands fa-whatsapp"></i> 
+        <a href="https://wa.me/26771234567" target="_blank">+267 71 234 567</a>
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <p>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3>&copy; 2025 Mbiki Journey’s</h3>
+      <p>All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+  <!-- Font Awesome CDN -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</html>

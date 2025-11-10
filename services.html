@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Services - Mbiki Journey’s</title>
+<!-- Google Fonts for consistency -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<!-- Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: url('group-wildebeests-walking-away-grass-covered-field-rain.jpg') no-repeat center/cover;
+    background-attachment: fixed;
+    color: #fff;
+    line-height: 1.6;
+  }
+
+  /* Navigation Bar Styles */
+  nav {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #ffd700;
+  }
+
+  /* Container with top padding to avoid header overlap, and center text */
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 140px 20px 60px; /* increased top padding for header */
+    text-align: center; /* Center all text inside container */
+  }
+
+  /* Main title centered and fixed */
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    border-bottom: 3px solid #fff;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-weight: 700;
+  }
+
+  /* Section title styles */
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+    position: relative;
+  }
+  .section-title::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 80px;
+    background: #fff;
+    margin: 8px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Grid layout for services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center; /* Center grid items horizontally */
+  }
+
+  /* Service card styles with hover expand */
+  .service-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+    height: 250px; /* initial height */
+    width: 100%; /* flexible width */
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .service-card:hover {
+    height: 350px; /* expanded height on hover */
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* Icon styling */
+  .icon-container {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transition: background 0.3s;
+    font-size: 2rem; /* size for icons */
+    color: #fff; /* icon color */
+  }
+  .icon-container:hover {
+    background: rgba(255,255,255,0.4);
+  }
+  /* Remove img styles since we're using icons now */
+
+  /* Service title */
+  .service-title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* Description that appears on hover */
+  .service-desc {
+    font-size: 1rem;
+    color: #ddd;
+    margin-top: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+  }
+  /* Show description on hover */
+  .service-card:hover .service-desc {
+    max-height: 150px;
+    opacity: 1;
+  }
+
+  /* Responsive adjustments */
+  @media(max-width: 768px){
+    h1 {
+      font-size: 2rem;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutus.html" class="active">About Us</a></li>
+    <li><a href="services.html">Our Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+  <h1>Our Services</h1>
+
+  <section>
+    <h2 class="section-title">What We Offer</h2>
+    <div class="services-grid">
+      <!-- Service Card 1 -->
+      <div class="service-card">
+        <div class="icon-container">
+          <i class="fas fa-campground"></i>
+        </div>
+        <div class="service-title">Adventure Tours</div>
+        <div class="service-desc">
+          Experience Botswana’s wild side with safaris, desert treks, and river expeditions designed for thrill-seekers and explorers alike.
+        </div>
+      </div>
+      <!-- Service Card 2 -->
+      <div class="service-card">
+        <div class="icon-container">
+          <i class="fas fa-globe"></i>
+        </div>
+        <div class="service-title">Cultural Experiences</div>
+        <div class="service-desc">
+          Visit local villages, participate in traditional ceremonies, and immerse yourself in Botswana’s rich heritage and customs.
+        </div>
+      </div>
+      <!-- Service Card 3 -->
+      <div class="service-card">
+        <div class="icon-container">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <div class="service-title">Eco & Wildlife Tours</div>
+        <div class="service-desc">
+          Join eco-friendly safaris and conservation tours to witness Botswana’s breathtaking wildlife while supporting sustainability.
+        </div>
+      </div>
+      <!-- Service Card 4 -->
+      <div class="service-card">
+        <div class="icon-container">
+          <i class="fas fa-plane"></i>
+        </div>
+        <div class="service-title">Travel Planning</div>
+        <div class="service-desc">
+          Let our experts customize your trip with tailored itineraries, accommodations, and transportation for a hassle-free adventure.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

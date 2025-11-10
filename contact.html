@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us - Mbiki Journey’s</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0f2027;
+    color: #fff;
+    line-height: 1.6;
+    padding: 0;
+  }
+
+  /* Header with layered background and overlay */
+  header {
+    background: linear-gradient(135deg, #1d2b64, #f8f9fa);
+    padding: 80px 20px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #ddd;
+    font-weight: 300;
+  }
+
+  /* Navigation bar */
+  nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    padding: 15px 20px;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+  }
+
+  nav ul li a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  nav ul li a:hover, nav ul li a.active {
+    background: #ffd700;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* Container for main content */
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  /* Section titles with animated underline */
+  .section-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    color: #fff;
+  }
+
+  .section-title::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 100px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    margin: 8px auto 0;
+    border-radius: 2px;
+    animation: pulse 2s infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+
+  /* Flex layout for contact sections */
+  .flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  /* Contact Info Cards (Address, Phone, Email) */
+  .info-card {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 350px;
+    flex: 1 1 300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  }
+
+  .info-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    color: #ffd700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Contact Form Styles */
+  form#contactForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ddd;
+  }
+
+  input, textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 0 12px #ffd700;
+    transform: translateY(-2px);
+  }
+
+  /* Submit button style */
+  button[type="submit"] {
+    grid-column: 1 / -1;
+    padding: 20px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transform: scale(1.02);
+  }
+
+  /* Error message styles */
+  .error-message {
+    position: absolute;
+    top: -18px;
+    right: 10px;
+    font-size: 0.85rem;
+    color: #ff4d4d;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Social Media icons with animated hover */
+  .social-icons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .social-icons a {
+    font-size: 2.2rem;
+    color: #fff;
+    transition: color 0.3s, transform 0.2s;
+  }
+
+  .social-icons a:hover {
+    color: #ffd700;
+    transform: scale(1.2);
+  }
+
+  /* Responsive adjustments */
+  @media(max-width: 768px){
+    header h1 {
+      font-size: 2.5rem;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+    .map-section {
+      height: 250px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>Contact Our Team</h1>
+  <p>Discover our dedicated team members or reach us through the contact form. We’re committed to making your journey unforgettable.</p>
+</header>
+
+<!-- Navigation -->
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutus.html">About Us</a></li>
+    <li><a href="services.html">Our Services</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- Contact Form -->
+  <section>
+    <h2 class="section-title">Get in Touch</h2>
+    <form id="contactForm" novalidate>
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
+        <div class="error-message" id="name-error"></div>
+      </div>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        <div class="error-message" id="email-error"></div>
+      </div>
+      <!-- Subject -->
+      <div class="form-group">
+        <label for="subject">Subject *</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required />
+        <div class="error-message" id="subject-error"></div>
+      </div>
+      <!-- Message -->
+      <div class="form-group" style="grid-column: 1 / -1;">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="6" placeholder="Your message..." required></textarea>
+        <div class="error-message" id="message-error"></div>
+      </div>
+      <!-- Submit Button -->
+      <div style="grid-column: 1 / -1; text-align: center; margin-top: 20px;">
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Contact Info & Social -->
+  <section style="margin-top: 50px;">
+    <h2 class="section-title">Contact Info</h2>
+    <div class="flex-grid">
+      <div class="info-card">
+        <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+        <p>123 Safari Road, Gaborone, Botswana</p>
+        <p>Open: Mon - Fri, 8am - 6pm</p>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-phone"></i> Phone</h3>
+        <p>+267 71234567</p>
+        <p>+267 78965432</p>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-envelope"></i> Email</h3>
+        <p>contact@mbikijourneys.bw</p>
+        <p>info@mbikijourneys.bw</p>
+      </div>
+    </div>
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Scripts for validation -->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    // Clear previous errors
+    document.querySelectorAll('.error-message').forEach(e => e.style.opacity=0);
+    let valid = true;
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const subject = document.getElementById('subject');
+    const message = document.getElementById('message');
+
+    // Name validation
+    if (name.value.trim() === '') {
+      showError('name-error', 'Please enter your full name.');
+      valid = false;
+    }
+    // Email validation
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (email.value.trim() === '') {
+      showError('email-error', 'Please enter your email.');
+      valid = false;
+    } else if (!emailPattern.test(email.value.trim())) {
+      showError('email-error', 'Invalid email address.');
+      valid = false;
+    }
+    // Subject validation
+    if (subject.value.trim() === '') {
+      showError('subject-error', 'Please enter a subject.');
+      valid = false;
+    }
+    // Message validation
+    if (message.value.trim() === '') {
+      showError('message-error', 'Please enter your message.');
+      valid = false;
+    }
+
+    if (valid) {
+      alert('Thank you! Your message has been received.');
+      document.getElementById('contactForm').reset();
+    }
+  });
+
+  function showError(id, msg) {
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.style.opacity = 1;
+  }
+</script>
+</body>
+</html>
